@@ -1,0 +1,22 @@
+@layouts.main()
+  <main class="py-24">
+    <div class="container mx-auto flex">
+      <div class="w-2xl">
+        <form action="/expenses" method="post" up-submit>
+          {{ csrfField() }}
+
+          @!input({ name: 'title', title: 'Title' })
+          @!input({ name: 'amount', title: 'Transaction amount' })
+          @!input({ name: 'transactionDate', title: 'Transaction date', type: 'date' })
+          @!select({ name: 'categoryId', options: categories, title: 'Category' })
+
+          <div>
+            <button type="submit" class="bg-gray-900 text-gray-100 py-1 px-2">
+              Create expense
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+@end

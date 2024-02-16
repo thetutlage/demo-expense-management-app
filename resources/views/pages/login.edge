@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+</head>
+<body>
+  @flashMessage('errorsBag')
+    @each(message in $message)
+      <p> {{ message }} </p>
+    @end
+  @end
+
+  <main>
+    <div class="w-2xl mx-auto">
+      <form action="/login" method="post">
+        {{ csrfField() }}
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password">
+        </div>
+
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>

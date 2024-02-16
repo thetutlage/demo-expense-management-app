@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenses list</title>
+  @vite('resources/js/app.js')
+</head>
+<body>
+
+  <header class="bg-gray-100 border-b border-b-gray-300">
+    <div class="container mx-auto flex justify-between items-center h-16">
+      <div>
+        <a href=""> Expense tracker </a>
+      </div>
+      <div>
+        <nav>
+          <ul class="flex space-x-4">
+            @if(auth.user)
+              <li> {{ auth.user.fullName }} </li>
+              <li>
+                <a
+                  href="/categories/create"
+                  class="underline"
+                  up-follow
+                  >
+                  Create category
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/expenses/create"
+                  class="underline"
+                  up-follow
+                > Create expense </a>
+              </li>
+            @else
+              <li>
+                <a href="/login"> Login </a>
+              </li>
+            @end
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  {{{ await $slots.main() }}}
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="my-6">
+  <label for="{{name}}" class="block">{{title}}</label>
+  <input type="{{type || 'text'}}" id="{{name}}" name="{{name}}" class="border border-gray-300 px-2 py-1">
+  @inputError(name)
+    {{ $messages }}
+  @end
+</div>

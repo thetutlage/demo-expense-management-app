@@ -1,0 +1,20 @@
+@layouts.main()
+  <main class="py-24">
+    <div class="container mx-auto flex">
+      <div class="w-2xl">
+        <form action="/categories" method="post" up-submit>
+          {{ csrfField() }}
+
+          @!input({ name: 'name', title: 'Name' })
+          @!input({ name: 'budget', title: 'Budget' })
+
+          <div>
+            <button type="submit" class="bg-gray-900 text-gray-100 py-1 px-2">
+              Create category
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+@end
